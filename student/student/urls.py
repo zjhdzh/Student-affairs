@@ -15,7 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url,include
+from student import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    url(r'^$', views.login),
+    url(r'^loginin/$', views.loginin),
+    url(r'^loginin/AdminCourse/$', views.AdminCourse),
+    url(r'^loginin/AdminStudent/$', views.AdminStudent),
+    url(r'^loginin/AdminTeacher/$', views.AdminTeacher),
+    url(r'^AdminCourseAdd/$', views.AdminCourseAdd),
+    url(r'^AdminTeacherAdd/$', views.AdminTeacherAdd),
+    url(r'^AdminStudentAdd/$', views.AdminStudentAdd),
+    url(r'^AdminAddCourse/', views.AdminAddCourse),
+    url(r'^delete/(?P<course_id>[0-9]*)/$', views.delete_course),
+    url(r'^AdminAddStudent/', views.AdminAddStudent),
+    url(r'^AdminAddTeacher/', views.AdminAddTeacher),
+    url(r'^search_student/(?P<student_StuNum>[0-9]*)/$', views.search_student),
+    url(r'^updateStudent/', views.updateStudent),
+    url(r'^search_teacher/(?P<teacher_TeaNum>[0-9]*)/$', views.search_teacher),
+    url(r'^updateTeacher/', views.updateTeacher),
 ]
